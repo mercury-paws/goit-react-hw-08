@@ -1,0 +1,24 @@
+.contactInfo {
+  display: flex;
+  flex-direction: row;
+  gap: 50px;
+  justify-content: center;
+  align-items: center;
+  border: 2px solid #111;
+  border-radius: 25px;
+  list-style-type: none;
+  padding: 15px;
+  width: 300px;
+  padding-inline-start: 0;
+}
+
+.deleteBtn {
+  height: 45px;
+  border: 1px solid #111;
+  text-align: center;
+}
+
+.text {
+  font-weight: bold;
+  height: 24px;
+}
