@@ -1,31 +1,25 @@
-import ContactForm from "./ContactForm/ContactForm.jsx";
-import SearchBox from "./SearchBox/SearchBox.jsx";
-import ContactList from "./ContactList/ContactList.jsx";
-import { useDispatch, useSelector } from "react-redux";
-import { useEffect } from "react";
-import { fetchContacts } from "../redux/contactsOps.js";
-import Loader from "./Loader/Loader.jsx";
-// import { selectContacts } from "../redux/contactsSlice.js";
-import { selectError, selectLoadingFetch } from "../redux/contactsSlice.js";
+import { lazy, Suspense } from "react";
+import { Route, Routes } from "react-router-dom";
+import Layout from "../components/Layout/Layout";
+
+const HomePage = lazy(() => import("../pages/HomePage/HomePage"));
+const RegistrationPage = lazy(() =>
+  import("../pages/RegistrationPage/RegistrationPage")
+);
+const LoginPage = lazy(() => import("../pages/LoginPage/LoginPage"));
+const ContactsPage = lazy(() => import("../pages/ContactsPage/ContactsPage"));
 
 export default function App() {
-  // const contacts = useSelector(selectContacts);
-  const dispatch = useDispatch();
-  const isLoading = useSelector(selectLoadingFetch);
-  const isError = useSelector(selectError);
-  useEffect(() => {
-    dispatch(fetchContacts());
-  }, [dispatch]);
-
   return (
-    <div>
-      <h1>Phonebook</h1>
-
-      <ContactForm />
-      <SearchBox />
-      {isLoading && <Loader />}
-      {isError && <p>Ooops, smth went wrong</p>}
-      <ContactList />
-    </div>
+    <Layout>
+      <Suspense fallback={null}>
+        <Routes>
+          <Route path="/" element={<HomePage />} />
+          <Route path="/register" element={<RegistrationPage />} />
+          <Route path="/login" element={<LoginPage />} />
+          <Route path="/contacts" element={<ContactsPage />} />
+        </Routes>
+      </Suspense>
+    </Layout>
   );
 }
