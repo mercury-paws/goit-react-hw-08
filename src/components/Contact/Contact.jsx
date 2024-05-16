@@ -1,7 +1,7 @@
 import css from "./Contact.module.css";
 import { useDispatch, useSelector } from "react-redux";
-import { deleteContact } from "../../redux/contactsOps";
-import { selectLoadingDelete } from "../../redux/contactsSlice";
+import { deleteContact } from "../../redux/contacts/operations";
+import { selectLoadingDelete } from "../../redux/contacts/selectors";
 
 //екшен видалення контакту при кліку по кнопці видалення useDispatch
 

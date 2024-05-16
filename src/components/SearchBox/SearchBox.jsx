@@ -1,12 +1,7 @@
 import css from "./SearchBox.module.css";
 import { useDispatch, useSelector } from "react-redux";
-import {
-  changeNameFilter,
-  selectNameFilter,
-  // changeNumberFilter,
-  // selectNumberFilter,
-} from "../../redux/filtersSlice";
-
+import { selectNameFilter } from "../../redux/filters/selectors";
+import { changeNameFilter } from "../../redux/filters/slice";
 //екшен зміни фільтра при введенні в текстове поле
 
 export default function SearchBox() {

@@ -4,7 +4,7 @@ import { useSelector } from "react-redux";
 import {
   selectFilteredContacts,
   // selectFilteredNumberedContacts,
-} from "../../redux/filtersSlice";
+} from "../../redux/filters/slice";
 
 export default function ContactList() {
   const foundContact = useSelector(selectFilteredContacts);

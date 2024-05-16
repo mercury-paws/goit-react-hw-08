@@ -3,13 +3,12 @@ import SearchBox from "../../components/SearchBox/SearchBox.jsx";
 import ContactList from "../../components/ContactList/ContactList.jsx";
 import { useDispatch, useSelector } from "react-redux";
 import { useEffect } from "react";
-import { fetchContacts } from "../../redux/contactsOps.js";
+import { fetchContacts } from "../../redux/contacts/operations.js";
 import Loader from "../../components/Loader/Loader.jsx";
-// import { selectContacts } from "../redux/contactsSlice.js";
-import { selectError, selectLoadingFetch } from "../../redux/contactsSlice.js";
+import { selectError } from "../../redux/contacts/selectors.js";
+import { selectLoadingFetch } from "../../redux/contacts/selectors.js";
 
 export default function ContactsPage() {
-  // const contacts = useSelector(selectContacts);
   const dispatch = useDispatch();
   const isLoading = useSelector(selectLoadingFetch);
   const isError = useSelector(selectError);
