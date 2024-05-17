@@ -51,6 +51,22 @@ export const logOut = createAsyncThunk("auth/logout", async (_, thunkAPI) => {
   }
 });
 
-// POST - refresh
+// GET - refresh @ /users/current
 
-// export const refresh = createAsyncThunk("auth/refresh", async () => {});
+export const refreshUser = createAsyncThunk(
+  "auth/refresh",
+  async (_, thunkAPI) => {
+    const reduxState = thunkAPI.getState();
+    const savedToken = reduxState.auth.token;
+    setAuthHeader(savedToken);
+    const response = await axios.get("users/current");
+    return response.data;
+  },
+  {
+    condition(_, thunkAPI) {
+      const reduxState = thunkAPI.getState();
+      const savedToken = reduxState.auth.token;
+      return savedToken !== null;
+    },
+  }
+);
