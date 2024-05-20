@@ -10,13 +10,17 @@ export default function ContactList() {
   const foundContact = useSelector(selectFilteredContacts);
   return (
     <>
-      <ul className={css.list}>
-        {foundContact.map((contact) => (
-          <li key={contact.id}>
-            <Contact contact={contact} />
-          </li>
-        ))}
-      </ul>
+      {foundContact.length > 0 ? (
+        <ul className={css.list}>
+          {foundContact.map((contact) => (
+            <li key={contact.id}>
+              <Contact contact={contact} />
+            </li>
+          ))}
+        </ul>
+      ) : (
+        "No contacts found"
+      )}
     </>
   );
 }

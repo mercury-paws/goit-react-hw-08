@@ -7,6 +7,7 @@ import { fetchContacts } from "../../redux/contacts/operations.js";
 import Loader from "../../components/Loader/Loader.jsx";
 import { selectError } from "../../redux/contacts/selectors.js";
 import { selectLoadingFetch } from "../../redux/contacts/selectors.js";
+import css from "./ContactsPage.module.css";
 
 export default function ContactsPage() {
   const dispatch = useDispatch();
@@ -19,9 +20,10 @@ export default function ContactsPage() {
   return (
     <div>
       <h1>Phonebook</h1>
-
-      <ContactForm />
-      <SearchBox />
+      <div className={css.searchFormBlock}>
+        <ContactForm />
+        <SearchBox />
+      </div>
       {isLoading && <Loader />}
       {isError && <p>Ooops, smth went wrong</p>}
       <ContactList />

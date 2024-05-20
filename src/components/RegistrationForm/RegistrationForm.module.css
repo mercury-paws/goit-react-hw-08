@@ -1,9 +1,29 @@
 .form {
   width: 320px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
 }
 
 .label {
   display: flex;
   flex-direction: column;
-  margin-bottom: 16px;
+  /* margin-bottom: 16px; */
+}
+
+.submitBtn {
+  border: 1px solid #8a8a8a;
+  background-color: rgb(247, 215, 253);
+  transition: border-color 0.5s;
+  width: 320px;
+  margin-top: 25px;
+}
+
+.submitBtn {
+  border-color: none;
+}
+
+span {
+  color: red;
+  font-size: 12px;
 }

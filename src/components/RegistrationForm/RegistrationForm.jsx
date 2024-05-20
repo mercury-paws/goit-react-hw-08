@@ -1,8 +1,21 @@
-import { Formik, Form, Field } from "formik";
+import { Formik, Form, Field, ErrorMessage } from "formik";
 import { useDispatch } from "react-redux";
 import css from "./RegistrationForm.module.css";
 import { register } from "../../redux/auth/operations";
+import * as Yup from "yup";
 
+const UserSchema = Yup.object().shape({
+  name: Yup.string()
+    .min(3, "Too Short!")
+    .max(50, "Too Long!")
+    .required("Required"),
+  email: Yup.string()
+    .matches(
+      /^[^\s@]+@[^\s@]+\.[^\s@]+$/,
+      "Email must be a valid format with @ symbol"
+    )
+    .required("Email is required"),
+});
 export default function RegistrationForm() {
   const dispatch = useDispatch();
 
@@ -18,22 +31,24 @@ export default function RegistrationForm() {
         email: "",
         password: "",
       }}
+      validationSchema={UserSchema}
       onSubmit={handleSubmit}
     >
       <Form className={css.form} autoComplete="off">
-        <label className={css.label}>
-          Username
-          <Field type="text" name="name" />
-        </label>
-        <label className={css.label}>
-          Email
-          <Field type="email" name="email" />
-        </label>
-        <label className={css.label}>
-          Password
-          <Field type="password" name="password" />
-        </label>
-        <button type="submit">Register</button>
+        <label className={css.label}>Username</label>
+        <Field type="text" name="name" />
+        <ErrorMessage className={css.error} name="name" component="span" />
+
+        <label className={css.label}>Email</label>
+        <Field type="email" name="email" />
+        <ErrorMessage className={css.error} name="email" component="span" />
+
+        <label className={css.label}>Password</label>
+        <Field type="password" name="password" />
+
+        <button type="submit" className={css.submitBtn}>
+          Register
+        </button>
       </Form>
     </Formik>
   );

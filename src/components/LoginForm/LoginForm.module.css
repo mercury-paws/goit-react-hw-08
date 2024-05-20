@@ -7,3 +7,15 @@
   flex-direction: column;
   margin-bottom: 16px;
 }
+
+.submitBtn {
+  border: 1px solid #8a8a8a;
+  background-color: aliceblue;
+  transition: border-color 0.5s;
+  width: 320px;
+  margin-top: 25px;
+}
+
+.submitBtn {
+  border-color: none;
+}
