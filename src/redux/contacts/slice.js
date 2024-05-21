@@ -3,6 +3,7 @@ import { fetchContacts } from "./operations";
 import { addContact } from "./operations";
 import { deleteContact } from "./operations";
 import { updateContact } from "./operations";
+import { logOut } from "../auth/operations";
 
 const slice = createSlice({
   name: "contacts",
@@ -55,6 +56,12 @@ const slice = createSlice({
       .addCase(deleteContact.rejected, (state) => {
         state.loading.delete = false;
         state.error = true;
+      })
+      .addCase(logOut.fulfilled, (state) => {
+        state.items = [];
+        state.loading.add = false;
+        state.loading.fetch = false;
+        state.loading.delete = false;
       })
       .addCase(updateContact.pending, (state) => {
         state.loading.update = true;
