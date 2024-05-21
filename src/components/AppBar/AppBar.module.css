@@ -2,9 +2,15 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-bottom: 16px;
+
   border-bottom: 1px solid #2a363b;
   margin: 0 auto;
-  width: 900px;
+  width: 1200px;
   margin-bottom: 30px;
+}
+
+@media screen and (prefers-color-scheme: light) and (max-width: 767px) {
+  .header {
+    width: 500px;
+  }
 }

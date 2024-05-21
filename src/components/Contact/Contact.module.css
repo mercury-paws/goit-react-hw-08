@@ -1,15 +1,17 @@
 .contactInfo {
   display: flex;
   flex-direction: row;
-  gap: 50px;
-  justify-content: center;
+  gap: 20px;
+  justify-content: space-between;
   align-items: center;
-  border: 2px solid #111;
   border-radius: 25px;
   list-style-type: none;
   padding: 15px;
   width: 300px;
   padding-inline-start: 0;
+  box-shadow: 0 20px 56px #8884;
+  height: 100px;
+  position: relative;
 }
 
 .deleteBtn {
@@ -17,8 +19,43 @@
   border: 1px solid #111;
   text-align: center;
 }
+.amendBtn {
+  height: 45px;
+  border: 1px solid #111;
+  text-align: center;
+}
 
 .text {
   font-weight: bold;
-  height: 24px;
+  /* height: 24px; */
+  padding: 10px;
+  margin: 0;
+}
+
+.btnsContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  justify-content: center;
+  align-items: center;
+}
+.colorInput {
+  height: 30px;
+  width: 30px;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  position: absolute;
+  background-color: transparent;
+  top: -30px;
+  left: 0;
+}
+
+.colorInput::-webkit-color-swatch {
+  border-radius: 40px 40px 10px 10px;
+  border: none;
+}
+.colorInput::-webkit-color-swatch-wrapper {
+  padding: 0;
+  width: 300px;
 }

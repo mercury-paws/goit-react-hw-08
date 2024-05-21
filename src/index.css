@@ -3,10 +3,9 @@
   line-height: 1.5;
   font-weight: 400;
   margin: 0 auto;
-  color-scheme: light dark;
-  color: rgba(255, 255, 255, 0.87);
-  background-color: #242424;
 
+  color: rgba(0, 0, 0, 0.87);
+  width: 1200px;
   font-synthesis: none;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
@@ -26,7 +25,7 @@ body {
   margin: 0;
   display: flex;
   place-items: center;
-
+  width: 1200px;
   padding: 25px;
 }
 
@@ -51,16 +50,19 @@ button:focus-visible {
   outline: 4px auto -webkit-focus-ring-color;
 } */
 
-@media (prefers-color-scheme: light) {
+/* @media screen and (prefers-color-scheme: light) and (max-width: 767px) {
   :root {
     color: #213547;
     background-color: #ffffff;
+    width: 500px;
+  }
+  body {
+    width: 500px;
   }
   a:hover {
     color: #747bff;
   }
-}
-
+} */
 input {
   height: 20px;
   border-radius: 8px;

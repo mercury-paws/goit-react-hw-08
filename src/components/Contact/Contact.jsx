@@ -1,28 +1,52 @@
 import css from "./Contact.module.css";
-import { useDispatch, useSelector } from "react-redux";
-import { deleteContact } from "../../redux/contacts/operations";
-import { selectLoadingDelete } from "../../redux/contacts/selectors";
+import { useSelector } from "react-redux";
+import { selectError } from "../../redux/contacts/selectors";
+import { useState } from "react";
 
 //екшен видалення контакту при кліку по кнопці видалення useDispatch
 
-export default function Contact({ contact: { name, number, id } }) {
-  const dispatch = useDispatch();
-  const isLoading = useSelector(selectLoadingDelete);
+export default function Contact({ contact, openModal, openAmendModal }) {
+  const isError = useSelector(selectError);
+  const [color, setColor] = useState("#e6b985");
 
   return (
-    <div className={css.contactInfo}>
+    <div
+      className={css.contactInfo}
+      style={{
+        borderTop: `30px solid ${color}`,
+        boxShadow: `0 20px 56px ${color}`,
+      }}
+    >
+      <form action="">
+        <input
+          type="color"
+          value={color}
+          id="color"
+          className={css.colorInput}
+          onChange={(e) => setColor(e.target.value)}
+        />
+      </form>
       <div>
-        <p className={css.text}>{name}</p>
-        <p className={css.text}>{number}</p>
+        <p className={css.text}>{contact.name}</p>
+        <p className={css.text}>{contact.number}</p>
       </div>
-      <button
-        className={css.deleteBtn}
-        type="button"
-        onClick={() => dispatch(deleteContact(id))}
-        disabled={isLoading}
-      >
-        {isLoading ? "Deleting..." : "Delete"}
-      </button>
+      <div className={css.btnsContainer}>
+        <button
+          className={css.deleteBtn}
+          type="button"
+          onClick={() => openModal(contact)}
+        >
+          Delete
+        </button>
+        <button
+          className={css.amendBtn}
+          type="button"
+          onClick={() => openAmendModal(contact)}
+        >
+          Amend
+        </button>
+      </div>
+      {isError && <p>Ooops, smth went wrong</p>}
     </div>
   );
 }

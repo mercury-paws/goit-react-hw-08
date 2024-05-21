@@ -1,6 +1,7 @@
 .searchFormBlock {
   display: flex;
   flex-direction: row;
-  gap: 250px;
+  justify-content: space-around;
   margin-bottom: 100px;
+  width: auto;
 }

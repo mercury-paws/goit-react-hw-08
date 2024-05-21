@@ -4,6 +4,7 @@ import * as Yup from "yup";
 import { useDispatch, useSelector } from "react-redux";
 import { addContact } from "../../redux/contacts/operations";
 import { selectLoadingAdd } from "../../redux/contacts/selectors";
+import toast from "react-hot-toast";
 
 //екшен додавання контакту при сабміті
 
@@ -29,7 +30,14 @@ export default function ContactForm() {
       number: values.number,
     };
 
-    dispatch(addContact(newContact));
+    dispatch(addContact(newContact))
+      .unwrap()
+      .then(() => {
+        toast.success("Contact is succesfully added!");
+      })
+      .catch((error) => {
+        console.log(error);
+      });
     actions.resetForm();
   };
 

@@ -10,24 +10,18 @@ export default function HomePage() {
         </span>
       </PageTitle>
       <p>
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Magni
-        asperiores eius nobis saepe quis voluptatibus facere expedita tempora,
-        hic similique natus minima fugit doloribus molestiae dolorum sed debitis
-        tempore consectetur repellat, accusantium aspernatur incidunt
-        doloremque. Quod doloribus beatae, molestiae voluptatibus, numquam
-        recusandae accusamus voluptatem aliquam, sed vero consectetur esse
-        harum?
-      </p>
-      <p>
-        Lorem, ipsum dolor sit amet consectetur adipisicing elit. Dolorum et
-        illo non vel rerum odit, maxime, vitae dolorem molestiae error
-        cupiditate! Quasi eaque est provident voluptates adipisci? Cumque
-        quisquam laboriosam ullam, inventore ipsa ducimus quaerat dolorum natus
-        quasi amet ab earum vero, laborum cum quibusdam qui? Illo ab facere a
-        dolore, labore quisquam modi voluptatum esse nisi accusantium architecto
-        qui veritatis molestiae doloribus quas placeat, suscipit asperiores
-        fugiat quam sint perspiciatis ducimus! Officiis quam vel inventore fuga
-        dolorum, voluptatibus possimus.
+        Welcome to my first React Redux project, a comprehensive contacts
+        management application. <br />
+        The application allows users to register and log in to manage their
+        contacts securely. Once logged in, users can add new contacts with ease.
+        The app provides the ability to amend existing contact information.
+        Users can delete contacts they no longer need, ensuring their contact
+        list stays up to date. A powerful search feature helps users find
+        specific contacts quickly. The user interface is designed to be
+        intuitive and user-friendly. <br />
+        Building this project has been an excellent learning experience,
+        enhancing my skills in React and Redux. I hope you find the app useful
+        and enjoy exploring its features as much as I enjoyed creating it.
       </p>
     </div>
   );
