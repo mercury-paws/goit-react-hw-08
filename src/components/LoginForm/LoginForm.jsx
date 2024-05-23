@@ -13,8 +13,8 @@ export default function LoginForm() {
       .then(() => {
         toast.success("Succesfully logged in!");
       })
-      .catch((error) => {
-        console.log(error);
+      .catch(() => {
+        toast.error("Customer not found");
       });
     actions.resetForm();
   };
