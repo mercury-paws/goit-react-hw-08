@@ -26,8 +26,8 @@ export default function RegistrationForm() {
       .then(() => {
         toast.success("Succesfully registered!");
       })
-      .catch((error) => {
-        console.log(error);
+      .catch(() => {
+        toast.error("Smth went wrong");
       });
     actions.resetForm();
   };
