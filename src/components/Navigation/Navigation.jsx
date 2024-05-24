@@ -7,15 +7,18 @@ export default function Navigation() {
   const isLoggedIn = useSelector(selectIsLoggedIn);
 
   return (
-    <nav>
-      <NavLink className={css.link} to="/">
-        Home
-      </NavLink>
-      {isLoggedIn && (
-        <NavLink className={css.link} to="/contacts">
-          Contacts page
+    <>
+      <nav>
+        <NavLink className={css.link} to="/">
+          Home
         </NavLink>
-      )}
-    </nav>
+        <p className={css.mp}>@mercury_paws 🐾</p>
+        {isLoggedIn && (
+          <NavLink className={css.link} to="/contacts">
+            Contacts page
+          </NavLink>
+        )}
+      </nav>
+    </>
   );
 }
