@@ -1,7 +1,7 @@
 import axios from "axios";
 import { createAsyncThunk } from "@reduxjs/toolkit";
-// axios.defaults.baseUrl = "https://connections-api.herokuapp.com/";
-axios.defaults.baseURL = "https://cors-anywhere.herokuapp.com/https://connections-api.herokuapp.com/";
+axios.defaults.baseUrl = "https://connections-api.herokuapp.com/";
+// axios.defaults.baseURL = "https://cors-anywhere.herokuapp.com/https://connections-api.herokuapp.com/";
 
 
 const setAuthHeader = (token) => {
@@ -18,7 +18,14 @@ export const register = createAsyncThunk(
   "auth/register",
   async (newUser, thunkAPI) => {
     try {
-      const response = await axios.post("users/signup", newUser);
+      // const response = await axios.post("users/signup", newUser);
+
+const response = await axios.post("users/signup", newUser, {
+  headers: {
+    "Access-Control-Allow-Origin": "*",
+    "Content-Type": "application/json"
+  }
+});
       setAuthHeader(response.data.token);
       return response.data;
     } catch (error) {
