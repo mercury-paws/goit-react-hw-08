@@ -4,7 +4,7 @@ import { createAsyncThunk } from "@reduxjs/toolkit";
 const setAuthHeader = (token) => {
   axios.defaults.headers.common["Authorization"] = `Bearer ${token}`;
 };
-axios.defaults.baseURL = "https://connections-api.herokuapp.com";
+axios.defaults.baseURL = "https://connections-api.goit.global/";
 
 //Базовий тип екшену це рядок "contacts/fetchAll"
 export const fetchContacts = createAsyncThunk(
