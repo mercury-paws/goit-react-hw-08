@@ -1,6 +1,8 @@
 import axios from "axios";
 import { createAsyncThunk } from "@reduxjs/toolkit";
-axios.defaults.baseUrl = "https://connections-api.herokuapp.com/";
+
+axios.defaults.baseUrl = "https://connections-api.goit.global/";
+// axios.defaults.baseUrl = "https://connections-api.herokuapp.com/";
 // axios.defaults.baseURL = "https://cors-anywhere.herokuapp.com/https://connections-api.herokuapp.com/";
 
 
